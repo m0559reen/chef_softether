@@ -1,0 +1,6 @@
+HubCreate <%= node['softether']['hubname'] %> /PASSWORD:<%= node['softether']['passtohub'] %>
+Hub <%= node['softether']['hubname'] %>
+UserCreate <%= node['softether']['username'] %> /GROUP:none /REALNAME:none /NOTE:none
+UserPasswordSet <%= node['softether']['username'] %> /PASSWORD:<%= node['softether']['passtouser'] %>
+IPsecEnable /L2TP:yes /L2TPRAW:no /ETHERIP:no /PSK:<%= node['softether']['secret_with_device'] %> /DEFAULTHUB:<%= node['softether']['hubname'] %>
+SecureNatEnable
